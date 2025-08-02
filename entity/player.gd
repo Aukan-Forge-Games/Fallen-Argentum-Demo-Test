@@ -1,11 +1,8 @@
 extends CharacterBody2D
 
-# @export var spawn_position : Vector2 = Vector2.ZERO
 @export var walk_speed : float
 @export var run_speed : float
 @export var enemy_color_modulate : Color
-
-var spawn_position : Vector2
 
 var _velocity : Vector2 = Vector2.ZERO
 var _previous_velocity : Vector2 = Vector2.ZERO

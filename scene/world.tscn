@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://cl25k2y58teol"]
 
-[ext_resource type="Script" uid="uid://chiqb8ydsfjbs" path="res://scene/server/world.gd" id="1_ntsm4"]
-[ext_resource type="Script" uid="uid://ce5x6lnti6ik1" path="res://scene/server/multiplayer_spawner.gd" id="1_orqjo"]
+[ext_resource type="Script" uid="uid://chiqb8ydsfjbs" path="res://scene/world.gd" id="1_ntsm4"]
+[ext_resource type="Script" uid="uid://ce5x6lnti6ik1" path="res://scene/multiplayer_spawner.gd" id="1_orqjo"]
 [ext_resource type="Texture2D" uid="uid://cfkwurur5c6l0" path="res://assets/kenney-rpgtileset.png" id="2_35ouf"]
 [ext_resource type="PackedScene" uid="uid://cpoc47k4o34n6" path="res://entity/player.tscn" id="2_ntsm4"]
 [ext_resource type="PackedScene" uid="uid://c8evkxrpmtbaa" path="res://ui/lobby_screen.tscn" id="3_ntsm4"]

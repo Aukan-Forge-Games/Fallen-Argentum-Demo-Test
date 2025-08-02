@@ -33,13 +33,13 @@ func update_animation(new_heading : Vector2, running : bool):
       (not running and animation.begins_with("run_"))
     )
     if not direction_deviated or speed_changed:
-      var anim : String = "run_" if running else "walk_"
+      var anim : String = "run" if running else "walk"
       if new_heading.x > 0.0:
-        anim += "right"
+        anim += RIGHT_POSTFIX
       elif new_heading.x < 0.0:
-        anim += "left"
+        anim += LEFT_POSTFIX
       elif new_heading.y > 0.0:
-        anim += "down"
+        anim += DOWN_POSTFIX
       elif new_heading.y < 0.0:
-        anim += "up"
+        anim += UP_POSTFIX
       play(anim)
