@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=4 uid="uid://cl25k2y58teol"]
+
+[ext_resource type="Script" uid="uid://ce5x6lnti6ik1" path="res://scene/server/multiplayer_spawner.gd" id="1_orqjo"]
+[ext_resource type="Texture2D" uid="uid://cfkwurur5c6l0" path="res://assets/kenney-rpgtileset.png" id="2_35ouf"]
+[ext_resource type="PackedScene" uid="uid://cpoc47k4o34n6" path="res://entity/player.tscn" id="2_ntsm4"]
+[ext_resource type="PackedScene" uid="uid://c8evkxrpmtbaa" path="res://ui/lobby_screen.tscn" id="3_ntsm4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tg4p"]
+texture = ExtResource("2_35ouf")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-38.4, -38.4, 64, -64, 64, 64, -64, 64)
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+12:0/0 = 0
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 38.4, -38.4, 64, 64, -64, 64)
+13:0/0 = 0
+13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+14:0/0 = 0
+14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+12:1/0 = 0
+12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+13:1/0 = 0
+13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+14:1/0 = 0
+14:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+10:2/0 = 0
+10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -38.4, 38.4)
+11:2/0 = 0
+11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+12:2/0 = 0
+12:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 38.4, 38.4, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_hcb8y"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "gress"
+terrain_set_0/terrain_0/color = Color(0.243725, 0.440443, 0.216364, 1)
+terrain_set_0/terrain_1/name = "dirt"
+terrain_set_0/terrain_1/color = Color(0.525778, 0.427346, 0.218636, 1)
+terrain_set_0/terrain_2/name = "water"
+terrain_set_0/terrain_2/color = Color(0.24502, 0.47971, 0.77304, 1)
+sources/1 = SubResource("TileSetAtlasSource_0tg4p")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_txmk2"]
+
+[node name="World" type="Node2D"]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://cpoc47k4o34n6")
+spawn_path = NodePath("..")
+spawn_limit = 32
+script = ExtResource("1_orqjo")
+player_scene = ExtResource("2_ntsm4")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAADAAAAAQABAAEAAAADAAEAAQABAAEAAAADAAIAAQABAAEAAAACAAIAAQAMAAIAAAABAAIAAQALAAIAAAAAAAQAAQABAAEAAAABAAMAAQABAAEAAAABAAQAAQABAAEAAAACAAQAAQABAAEAAAACAAMAAQABAAEAAAADAAQAAQABAAEAAAADAAMAAQABAAEAAAAEAAMAAQABAAEAAAAEAAQAAQABAAEAAAAEAAUAAQABAAEAAAAFAAIAAQABAAEAAAAFAAMAAQABAAEAAAAEAAIAAQABAAEAAAAEAAEAAQABAAEAAAAEAAAAAQABAAEAAAAFAAAAAQABAAEAAAAFAAEAAQABAAEAAAAGAAQAAQABAAEAAAAGAAMAAQABAAEAAAAGAAIAAQABAAEAAAAFAAUAAQABAAEAAAAFAAQAAQABAAEAAAAHAAQAAQABAAEAAAAHAAUAAQABAAEAAAAAAAUAAQABAAEAAAABAAUAAQABAAEAAAACAAUAAQABAAEAAAADAAUAAQABAAEAAAAGAAUAAQABAAEAAAAIAAUAAQABAAEAAAACAAEAAQAMAAEAAAACAAAAAQAMAAEAAAAAAAIAAQALAAIAAAABAAEAAQALAAEAAAAAAAAAAQALAAEAAAABAAAAAQALAAEAAAAAAAEAAQALAAEAAAAAAAMAAQABAAEAAAAHAAAAAQAGAAEAAAAIAAAAAQAGAAEAAAAIAAEAAQAGAAEAAAAHAAEAAQAJAAAAAAAIAAIAAQAGAAEAAAAIAAMAAQAJAAAAAAAHAAMAAQAFAAIAAAAIAAQAAQAFAAIAAAAGAAEAAQAFAAIAAAAHAAIAAQAFAAEAAAAGAAAAAQAFAAEAAAA=")
+tile_set = SubResource("TileSet_hcb8y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 768)
+shape = SubResource("WorldBoundaryShape2D_txmk2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 384)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_txmk2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1152, 384)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_txmk2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 0)
+rotation = -3.14159
+shape = SubResource("WorldBoundaryShape2D_txmk2")
+
+[node name="Control" parent="." instance=ExtResource("3_ntsm4")]
