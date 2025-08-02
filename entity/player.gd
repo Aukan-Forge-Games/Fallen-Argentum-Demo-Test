@@ -42,6 +42,13 @@ func _physics_process(delta : float):
   position += _velocity * delta
   move_and_slide()
 
+func _unhandled_input(event : InputEvent):
+  if not is_multiplayer_authority():
+    return
+  if event.is_action_pressed("toggle_time_of_day"):
+    var world: Node2D = get_tree().get_first_node_in_group("World")
+    world.toggle_time_of_day.rpc()
+
 func _find_viable_spawn_position() -> Vector2:
   var vsize: Vector2 = Vector2(get_viewport().get_visible_rect().size)
   const ATTEMPTS : int = 100

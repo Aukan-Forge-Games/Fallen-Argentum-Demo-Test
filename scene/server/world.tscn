@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=4 uid="uid://cl25k2y58teol"]
+[gd_scene load_steps=10 format=4 uid="uid://cl25k2y58teol"]
 
+[ext_resource type="Script" uid="uid://chiqb8ydsfjbs" path="res://scene/server/world.gd" id="1_ntsm4"]
 [ext_resource type="Script" uid="uid://ce5x6lnti6ik1" path="res://scene/server/multiplayer_spawner.gd" id="1_orqjo"]
 [ext_resource type="Texture2D" uid="uid://cfkwurur5c6l0" path="res://assets/kenney-rpgtileset.png" id="2_35ouf"]
 [ext_resource type="PackedScene" uid="uid://cpoc47k4o34n6" path="res://entity/player.tscn" id="2_ntsm4"]
 [ext_resource type="PackedScene" uid="uid://c8evkxrpmtbaa" path="res://ui/lobby_screen.tscn" id="3_ntsm4"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ntsm4"]
+properties/0/path = NodePath(".:modulate")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tg4p"]
 texture = ExtResource("2_35ouf")
@@ -77,7 +83,15 @@ sources/1 = SubResource("TileSetAtlasSource_0tg4p")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_txmk2"]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" groups=["World"]]
+script = ExtResource("1_ntsm4")
+dawn_modulate = Color(0.690196, 0.776471, 0.952941, 1)
+midday_modulate = Color(1, 1, 1, 1)
+dusk_modulate = Color(0.619608, 0.513726, 0.682353, 1)
+night_modulate = Color(0.309804, 0.286275, 0.360784, 1)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ntsm4")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://cpoc47k4o34n6")
